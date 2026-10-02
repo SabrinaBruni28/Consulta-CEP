@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String? errorMessage;
   CepModel? cepModel;
   bool isLoading = false;
+  final resultadoKey = GlobalKey();
 
   Future buscarCep() async {
     // Tira o foco do input tirando o teclado
@@ -54,6 +55,15 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         errorMessage = null;
         cepModel = addresModel;
+      });
+
+      // Faz ccroll até o resultado
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Scrollable.ensureVisible(
+          resultadoKey.currentContext!,
+          duration: const Duration(milliseconds: 600),
+          curve: Curves.easeInOut,
+        );
       });
     } catch (e) {
       setState(() {
@@ -135,6 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
               keyboardType: TextInputType.number,
               controller: cepController,
               inputFormatters: [cepFormater],
+              onSubmitted: (_) => buscarCep(),
 
               decoration: InputDecoration(
                 labelText: "CEP",
@@ -236,6 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 opacity: cepModel != null ? 1.0 : 0.0,
                 duration: Duration(milliseconds: 300),
                 child: AddressWidget(
+                  key: resultadoKey,
                   cepModel: cepModel,
                 ),
               ),
