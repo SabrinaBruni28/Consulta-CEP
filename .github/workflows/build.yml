@@ -39,13 +39,13 @@ jobs:
       - name: Rename APK
         run: |
           mv build/app/outputs/flutter-apk/app-release.apk \
-             build/app/outputs/flutter-apk/ProcuraPalavras.apk
+             build/app/outputs/flutter-apk/ConsultaCEP.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ProcuraPalavras-Android
-          path: build/app/outputs/flutter-apk/ProcuraPalavras.apk
+          name: ConsultaCEP-Android
+          path: build/app/outputs/flutter-apk/ConsultaCEP.apk
 
   # ==========================================
   # WEB
@@ -68,7 +68,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Web
-        run: flutter build web --release --base-href /ProcuraPalavras/
+        run: flutter build web --release --base-href /ConsultaCEP/
 
       # ------------------------------------------
       # UPLOAD PARA GITHUB PAGES
@@ -112,14 +112,14 @@ jobs:
       - name: Download APK
         uses: actions/download-artifact@v4
         with:
-          name: ProcuraPalavras-Android
+          name: ConsultaCEP-Android
           path: release
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v1.0.${{ github.run_number }}
-          name: ProcuraPalavras v1.0.${{ github.run_number }}
+          name: ConsultaCEP v1.0.${{ github.run_number }}
           generate_release_notes: true
           files: |
-            release/ProcuraPalavras.apk
+            release/ConsultaCEP.apk
