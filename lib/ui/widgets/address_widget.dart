@@ -1,12 +1,19 @@
 import 'package:flutter_cep/ui/widgets/info_card.dart';
+import 'package:flutter_cep/models/cep_model.dart';
 import 'package:flutter/material.dart';
 
 class AddressWidget extends StatelessWidget {
-  const AddressWidget({super.key});
+  final CepModel? cepModel;
+
+  const AddressWidget({super.key, this.cepModel});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    if (cepModel == null) {
+      return SizedBox.shrink();
+    }
 
     return Column(
       children: [
@@ -59,7 +66,47 @@ class AddressWidget extends StatelessWidget {
         ),
 
         // Lista de informações
-        InfoCard(),
+        InfoCard(
+          icon: Icons.location_on_rounded,
+          title: "CEP",
+          subtitle: cepModel!.cep,
+          color: Colors.purple,
+        ),
+
+        InfoCard(
+          icon: Icons.streetview_rounded,
+          title: "Logradouro",
+          subtitle: cepModel!.logradouro,
+          color: Colors.pink,
+        ),
+
+        InfoCard(
+          icon: Icons.home_rounded,
+          title: "Bairro",
+          subtitle: cepModel!.bairro,
+          color: Colors.cyan,
+        ),
+
+        InfoCard(
+          icon: Icons.location_city_rounded,
+          title: "Cidade",
+          subtitle: cepModel!.localidade,
+          color: Colors.green,
+        ),
+
+         InfoCard(
+          icon: Icons.map_rounded,
+          title: "Estado",
+          subtitle: cepModel!.estado,
+          color: Colors.orange,
+        ),
+
+        InfoCard(
+          icon: Icons.info_rounded,
+          title: "Complemento",
+          subtitle: cepModel!.complemento,
+          color: Colors.brown,
+        ),
       ],
     );
   }

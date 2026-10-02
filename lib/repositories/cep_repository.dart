@@ -13,7 +13,7 @@ class CepRepository {
     final cleandCep = cep.replaceAll(r'[^0-9]', "");
 
     if (cleandCep.length != 8) {
-      throw Exception("CEP deve conter extamente 8 dígitos");
+      throw Exception("CEP deve conter exatamente 8 dígitos");
     }
 
     final url = Uri.parse("$_baseUrl/$cleandCep/json");

@@ -135,8 +135,8 @@ class AppTheme {
           elevation: 3,
 
           padding: EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 16,
+            horizontal: 28,
+            vertical: 24,
           ),
 
           backgroundColor: primaryColor,
