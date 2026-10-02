@@ -18,22 +18,18 @@ class CepRepository {
 
     final url = Uri.parse("$_baseUrl/$cleandCep/json");
 
-    try {
-      final response = await client.get(url);
+    final response = await client.get(url);
 
-      if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
+    if (response.statusCode == 200) {
+      final jsonData = json.decode(response.body);
 
-        if (jsonData.containsKey("erro")) {
-          throw Exception("CEP não encontrado");
-        }
-
-        return CepModel.fromJson(jsonData);
-      } else {
-        throw Exception("Erro na requisição");
+      if (jsonData.containsKey("erro")) {
+        throw Exception("CEP não encontrado");
       }
-    } catch (e) {
-      throw Exception("Erro ao realizar requisição");
+
+      return CepModel.fromJson(jsonData);
+    } else {
+      throw Exception("Erro ao buscar CEP");
     }
   }
 }
