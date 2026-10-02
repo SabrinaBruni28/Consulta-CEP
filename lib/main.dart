@@ -18,7 +18,7 @@ class FlutterCepApp extends StatelessWidget {
       // Temas
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
 
       // Tela inicial
       home: HomeScreen(),
