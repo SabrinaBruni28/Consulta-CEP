@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: InputDecoration(
                 labelText: "CEP",
                 hintText: "Digite o CEP (ex: 01310-100)",
-                prefixIcon: Icon(Icons.location_on_rounded),
+                prefixIcon: Icon(Icons.location_on_rounded, color: theme.colorScheme.primary,),
                 counterText: "",
               ),
             ),
