@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Consulta de CEP'),
+        title: const Text('Consulta CEP'),
         leading: Icon(Icons.location_city),
       ),
       body: SingleChildScrollView(

@@ -13,7 +13,7 @@ class FlutterCepApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // Nome do Sistema
-      title: "Consulta de CEP",
+      title: "Consulta CEP",
 
       // Temas
       theme: AppTheme.lightTheme,

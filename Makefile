@@ -17,3 +17,7 @@ clean:
 # Instala as dependências do projeto
 pub:
 	flutter pub get
+
+# Gera icones para cada tipo de plataforma
+icones:
+	dart run flutter_launcher_icons
