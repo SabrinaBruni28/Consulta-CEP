@@ -68,7 +68,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Web
-        run: flutter build web --release --base-href /ConsultaCEP/
+        run: flutter build web --release --base-href /Consulta-CEP/
 
       # ------------------------------------------
       # UPLOAD PARA GITHUB PAGES
